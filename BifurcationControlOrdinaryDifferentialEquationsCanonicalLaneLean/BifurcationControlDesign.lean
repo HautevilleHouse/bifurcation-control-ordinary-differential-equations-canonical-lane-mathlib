@@ -1,0 +1,16 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.BifurcationControlOrdinaryDifferentialEquationsCanonicalLaneLean.ControlSystemODE
+import HautevilleHouse.BifurcationControlOrdinaryDifferentialEquationsCanonicalLaneLean.BifurcationAnalysis
+import HautevilleHouse.BifurcationControlOrdinaryDifferentialEquationsCanonicalLaneLean.StabilizationControl
+
+namespace HautevilleHouse
+namespace BifurcationControlOrdinaryDifferentialEquationsCanonicalLaneLean
+
+structure BifurcationControlDesign (X U P : Type) (sys : ParametricControlSystem X U P) where
+  analysis : BifurcationAnalysis X U P sys
+  stabilization : StabilizationResult X U sys.toControlSystem
+  delayControl : Prop
+  avoidanceStrategy : Prop
+
+end HautevilleHouse
+namespace BifurcationControlOrdinaryDifferentialEquationsCanonicalLaneLean
